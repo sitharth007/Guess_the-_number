@@ -1,15 +1,22 @@
-let user_input=document.getElementById("user_input")
-let unorder_list=document.getElementById("unorder_list")
-function add(){
-    var list=document.createElement("li")
-    var btn=document.createElement("button")
-    btn.textContent="remove"
-    list.textContent=user_input.value
-    list.append(btn)
-    unorder_list.append(list)
-    btn.onclick=function(){
-        list.remove()
-    }
+let random=Math.random()
+let random_num=Math.floor(random*10)+1
+console.log(random_num)
 
-    user_input.value=""
+let score=document.getElementById("score")
+let tscore=10
+let res=document.getElementById("result")
+
+function check(){
+    let user_no = Number(document.getElementById("num").value);
+
+
+    if(random_num==user_no){
+        res.textContent="correct"
+        alert("You got it at "+tscore)
+    }
+    else{
+        tscore=tscore-1
+        score.textContent="Score:"+tscore
+        res.textContent="wrong"
+    }
 }
